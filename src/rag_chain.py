@@ -1,0 +1,95 @@
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+from src.llm import get_llm
+
+
+def ask_question(retriever, question):
+
+    documents = retriever.invoke(question)
+
+    context = "\n\n".join(
+        doc.page_content
+        for doc in documents
+    )
+
+    prompt = ChatPromptTemplate.from_template(
+        """
+        You are a helpful AI assistant.
+
+        Answer ONLY using the provided context.
+
+        If the answer is not present in the context, reply:
+        "I don't know based on the provided context."
+
+        Context:
+        {context}
+
+        Question:
+        {question}
+        """
+            )
+
+    llm = get_llm()
+
+    chain = (
+        prompt
+        | llm
+        | StrOutputParser()
+    )
+
+    answer = chain.invoke(
+        {
+            "context": context,
+            "question": question,
+        }
+    )
+
+    return answer
+
+
+def ask_question_with_stuff_chain(retriever, question):
+
+    documents = retriever.invoke(question)
+
+    print("\n")
+    print("=" * 80)
+    print("Retrieved Documents")
+    print("=" * 80)
+
+    for i, doc in enumerate(documents, start=1):
+        print(f"\nDocument {i}")
+        print(doc.page_content)
+        print("\nMetadata:", doc.metadata)
+        print("-" * 80)
+
+    prompt = ChatPromptTemplate.from_template(
+        """
+        You are a helpful AI assistant.
+
+        Answer ONLY using the provided context.
+
+        If the answer is not present in the context, say:
+
+        "I don't know based on the provided context."
+
+        Context:
+        {context}
+
+        Question:
+        {input}
+        """
+    )
+
+    llm = get_llm()
+
+    chain = prompt | llm | StrOutputParser()
+
+    answer = chain.invoke(
+        {
+            "input": question,
+            "context": documents,
+        }
+    )
+
+    return answer
