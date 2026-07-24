@@ -1,9 +1,11 @@
-from src.loader import load_rag_dataset, create_documents
+from urllib import response
+
+from src.rag_chain import ask_question_with_stuff_chain
 from src.splitter import split_documents
 from src.embeddings import get_embedding_model
-from src.vector_store import build_vector_store
+from src.loader import load_rag_dataset, create_documents
 from src.retriever import get_retriever
-from src.rag_chain import ask_question_with_stuff_chain
+from src.vector_store import build_vector_store
 
 
 def main():
@@ -108,5 +110,109 @@ def main():
         print(answer)
 
 
+
+def test_retrieval_chain():
+    from src.rag_chain import ask_question_with_retrieval_chain
+    corpus, qa = load_rag_dataset()
+    documents = create_documents(corpus)
+    chunks = split_documents(documents)
+    embedding_model = get_embedding_model()
+    vector_store = build_vector_store(
+            chunks,
+            embedding_model,
+        )
+    
+    retriever = get_retriever(vector_store)
+    questions = [
+            "Where is Uruguay located?",
+        ]
+    for question in questions:
+        print("\n" + "=" * 100)
+        print(f"Question: {question}")
+        print("=" * 100)
+        response = ask_question_with_retrieval_chain(
+            retriever,
+            question,
+        )
+        print("\nAnswer:\n")
+        print(response)
+
+
+
+def evaluate_retrieval():
+    # pyrefly: ignore [missing-import]
+    from src.eval import (
+        get_first_correct_rank,
+        hit_at_k,
+        reciprocal_rank,
+    )
+
+    corpus, qa = load_rag_dataset()
+    documents = create_documents(corpus)
+    chunks = split_documents(documents)
+    embedding_model = get_embedding_model()
+    vector_store = build_vector_store(chunks, embedding_model)
+    retriever = get_retriever(vector_store)
+
+    k_values = [1, 3, 5, 10]
+
+    ranks = []
+
+    for sample in qa:
+
+        question = sample["question"]
+        answer = sample["answer"]
+
+        docs = retriever.invoke(question)
+
+        rank = get_first_correct_rank(docs, answer)
+        ranks.append(rank)
+
+    print("\n" + "=" * 60)
+    print("RETRIEVAL METRICS")
+    print("=" * 60)
+
+    for k in k_values:
+        hit_scores = [hit_at_k(r, k) for r in ranks]
+        mean_hit = sum(hit_scores) / len(hit_scores)
+
+        rr_scores = [reciprocal_rank(r) for r in ranks]
+        mean_rr = sum(rr_scores) / len(rr_scores)
+
+        print(f"\nHit Rate @{k}:")
+        print(f"  Mean: {mean_hit:.4f}")
+
+        print(f"\nReciprocal Rank:")
+        print(f"  Mean: {mean_rr:.4f}")
+
+
+
+
+def generate_golden():
+    from src.golden_dataset import create_golden_dataset
+
+    corpus, qa = load_rag_dataset()
+    documents = create_documents(corpus)
+    chunks = split_documents(documents)
+    embedding_model = get_embedding_model()
+    vector_store = build_vector_store(chunks, embedding_model)
+    retriever = get_retriever(vector_store)
+
+    create_golden_dataset(qa, corpus, retriever, output_path="data/golden_dataset.json", max_samples=50)
+
+
 if __name__ == "__main__":
-    main()
+    corpus, qa = load_rag_dataset()
+    documents = create_documents(corpus)
+    chunks = split_documents(documents)
+
+    from src.bm25_retriever import build_bm25_retriever
+
+    question = "Jewish"
+
+    bm25_retriever = build_bm25_retriever(chunks)
+    docs = bm25_retriever.invoke(question)
+
+    for doc in docs:
+        print(doc.metadata)
+        print(doc.page_content[:200])
