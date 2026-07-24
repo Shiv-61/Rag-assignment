@@ -1,0 +1,349 @@
+[
+  {
+    "id": 0,
+    "question": "Was Abraham Lincoln the sixteenth President of the United States?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 2,
+    "question": "Did Lincoln sign the National Banking Act of 1863?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 4,
+    "question": "Did his mother die of pneumonia?",
+    "expected_answer": "no",
+    "relevant_doc_ids": [
+      2988,
+      2894,
+      568
+    ]
+  },
+  {
+    "id": 6,
+    "question": "How many long was Lincoln's formal education?",
+    "expected_answer": "18 months",
+    "relevant_doc_ids": [
+      287
+    ]
+  },
+  {
+    "id": 8,
+    "question": "When did Lincoln begin his political career?",
+    "expected_answer": "1832",
+    "relevant_doc_ids": [
+      289
+    ]
+  },
+  {
+    "id": 10,
+    "question": "What did The Legal Tender Act of 1862 establish?",
+    "expected_answer": "the United States Note, the first paper currency in United States history",
+    "relevant_doc_ids": [
+      361
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Who suggested Lincoln grow a beard?",
+    "expected_answer": "11-year-old Grace Bedell",
+    "relevant_doc_ids": [
+      382
+    ]
+  },
+  {
+    "id": 14,
+    "question": "When did the Gettysburg address argue that America was born?",
+    "expected_answer": "1776",
+    "relevant_doc_ids": [
+      358
+    ]
+  },
+  {
+    "id": 16,
+    "question": "Did Lincoln beat John C. Breckinridge in the 1860 election?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 18,
+    "question": "Was Abraham Lincoln the first President of the United States?",
+    "expected_answer": "No",
+    "relevant_doc_ids": [
+      278,
+      319,
+      334
+    ]
+  },
+  {
+    "id": 20,
+    "question": "Did Lincoln start his political career in 1832?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 22,
+    "question": "Did Lincoln ever represent Alton & Sangamon Railroad?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 24,
+    "question": "Which county was Lincoln born in?",
+    "expected_answer": "Hardin County",
+    "relevant_doc_ids": [
+      282
+    ]
+  },
+  {
+    "id": 26,
+    "question": "When did Lincoln first serve as President?",
+    "expected_answer": "March 4, 1861",
+    "relevant_doc_ids": [
+      278
+    ]
+  },
+  {
+    "id": 28,
+    "question": "Who assassinated Lincoln?",
+    "expected_answer": "John Wilkes Booth",
+    "relevant_doc_ids": [
+      364,
+      365
+    ]
+  },
+  {
+    "id": 30,
+    "question": "Did Lincoln win the election of 1860?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 32,
+    "question": "Who was the general in charge at the Battle of Antietam?",
+    "expected_answer": "General McClellan",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 34,
+    "question": "Why did Lincoln issue the Emancipation Proclamation?",
+    "expected_answer": "To free slaves",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 37,
+    "question": "Do scholars rank lincoln among the top three presidents?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 39,
+    "question": "Did lincoln have 18 months of schooling?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 41,
+    "question": "Was Lincoln chosen as a presidential candidate in 1860?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 43,
+    "question": "How old was Lincoln in 1816?",
+    "expected_answer": "seven",
+    "relevant_doc_ids": [
+      285
+    ]
+  },
+  {
+    "id": 45,
+    "question": "When was the first photgraph of lincoln taken?",
+    "expected_answer": "1846",
+    "relevant_doc_ids": [
+      299,
+      295
+    ]
+  },
+  {
+    "id": 47,
+    "question": "How long was Lincoln's legal Career?",
+    "expected_answer": "23 years",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 49,
+    "question": "What trail did Lincoln use a Farmers' Almanac in? ",
+    "expected_answer": "he defended William \"Duff\" Armstrong",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 51,
+    "question": "Did Abraham Lincoln live in the Frontier?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 53,
+    "question": "Did Lincoln's Wife's Family support slavery?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 80,
+    "question": "Who is most noted for his contributions to the theory of molarity and molecular weight?",
+    "expected_answer": "Amedeo Avogadro",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 83,
+    "question": "Who graduated in ecclesiastical law at the early age of 20 and began to practice?",
+    "expected_answer": "Amedeo Avogadro",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 86,
+    "question": "When did he publish another memoria?",
+    "expected_answer": "1821",
+    "relevant_doc_ids": [
+      743
+    ]
+  },
+  {
+    "id": 89,
+    "question": "When did he become a professor?",
+    "expected_answer": "1820",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 92,
+    "question": "Is it true that he became a professor in 1820?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 95,
+    "question": "Was Lorenzo Romano Amedeo Carlo Avogadro an Italian savant?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 98,
+    "question": "Was Amedeo Avogadro born in Turin August 9th 1776 to a noble ancient family of Piedmont, Italy?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 101,
+    "question": "Is he most noted for his contributions to the theory of molarity and molecular weight?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 115,
+    "question": "Was King Victor Emmanuel III there to pay homage to Avogadro ?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 118,
+    "question": "Is Avogadro 's number commonly used to compute the results of chemical reactions ?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 123,
+    "question": "Did the scientific community not reserve great attention to his theory ?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 131,
+    "question": "Can the title of this famous 1811 paper be roughly translated into english?",
+    "expected_answer": "yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 136,
+    "question": "What happened in 1833?",
+    "expected_answer": "Avogadro had been recalled to Turin university",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 139,
+    "question": "Who determined the dependence of the boiling of water with atmospheric pressure?",
+    "expected_answer": "Anders Celsius",
+    "relevant_doc_ids": [
+      145
+    ]
+  },
+  {
+    "id": 140,
+    "question": "What is named after him?",
+    "expected_answer": "The Celsius crater on the Moon",
+    "relevant_doc_ids": [
+      147
+    ]
+  },
+  {
+    "id": 141,
+    "question": "When did he publish a collection?",
+    "expected_answer": "1733",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 142,
+    "question": "Is it true that he published a collection in 1738?",
+    "expected_answer": "No",
+    "relevant_doc_ids": [
+      563,
+      594,
+      256
+    ]
+  },
+  {
+    "id": 143,
+    "question": "Is it true that thermometer had 100 for the freezing point?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 144,
+    "question": "Was Celsius born in Uppsala in Sweden?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 145,
+    "question": "Was Anders Celsius (November 27, 1701 April 25, 1744) a Swedish astronomer?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 146,
+    "question": "Is The Celsius crater on the Moon named after him?",
+    "expected_answer": "Yes",
+    "relevant_doc_ids": []
+  },
+  {
+    "id": 147,
+    "question": "Who was the first to perform and publish careful experiments aiming at the definition of an international temperature scale on scientific grounds ?",
+    "expected_answer": "Anders Celsius",
+    "relevant_doc_ids": [
+      145,
+      140
+    ]
+  },
+  {
+    "id": 148,
+    "question": "The Celsius crater on the Moon is what?",
+    "expected_answer": "named after him",
+    "relevant_doc_ids": [
+      147,
+      836,
+      1475
+    ]
+  }
+]
