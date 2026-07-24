@@ -1,10 +1,10 @@
 from urllib import response
 
-from src.rag_chain import ask_question_with_stuff_chain
-from src.splitter import split_documents
 from src.embeddings import get_embedding_model
-from src.loader import load_rag_dataset, create_documents
+from src.loader import create_documents, load_rag_dataset
+from src.rag_chain import ask_question_with_stuff_chain
 from src.retriever import get_retriever
+from src.splitter import split_documents
 from src.vector_store import build_vector_store
 
 
@@ -96,7 +96,6 @@ def main():
     # ============================
 
     for question in questions:
-
         print("\n" + "=" * 100)
         print(f"Question: {question}")
         print("=" * 100)
@@ -110,22 +109,22 @@ def main():
         print(answer)
 
 
-
 def test_retrieval_chain():
     from src.rag_chain import ask_question_with_retrieval_chain
+
     corpus, qa = load_rag_dataset()
     documents = create_documents(corpus)
     chunks = split_documents(documents)
     embedding_model = get_embedding_model()
     vector_store = build_vector_store(
-            chunks,
-            embedding_model,
-        )
-    
+        chunks,
+        embedding_model,
+    )
+
     retriever = get_retriever(vector_store)
     questions = [
-            "Where is Uruguay located?",
-        ]
+        "Where is Uruguay located?",
+    ]
     for question in questions:
         print("\n" + "=" * 100)
         print(f"Question: {question}")
@@ -136,7 +135,6 @@ def test_retrieval_chain():
         )
         print("\nAnswer:\n")
         print(response)
-
 
 
 def evaluate_retrieval():
@@ -159,7 +157,6 @@ def evaluate_retrieval():
     ranks = []
 
     for sample in qa:
-
         question = sample["question"]
         answer = sample["answer"]
 
@@ -186,8 +183,6 @@ def evaluate_retrieval():
         print(f"  Mean: {mean_rr:.4f}")
 
 
-
-
 def generate_golden():
     from src.golden_dataset import create_golden_dataset
 
@@ -198,7 +193,9 @@ def generate_golden():
     vector_store = build_vector_store(chunks, embedding_model)
     retriever = get_retriever(vector_store)
 
-    create_golden_dataset(qa, corpus, retriever, output_path="data/golden_dataset.json", max_samples=50)
+    create_golden_dataset(
+        qa, corpus, retriever, output_path="data/golden_dataset.json", max_samples=50
+    )
 
 
 if __name__ == "__main__":
@@ -212,6 +209,15 @@ if __name__ == "__main__":
 
     bm25_retriever = build_bm25_retriever(chunks)
     docs = bm25_retriever.invoke(question)
+
+    embedding_model = get_embedding_model()
+    vector_store = build_vector_store(chunks, embedding_model)
+    retriever = get_retriever(vector_store)
+
+    from src.hybrid_retriever import build_hybrid_retriever
+
+    hybrid_retriever = build_hybrid_retriever(bm25_retriever, retriever)
+    docs = hybrid_retriever.invoke(question)
 
     for doc in docs:
         print(doc.metadata)
