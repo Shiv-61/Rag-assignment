@@ -198,7 +198,7 @@ def generate_golden():
     )
 
 
-if __name__ == "__main__":
+def hybrid_plus_rerank():
     corpus, qa = load_rag_dataset()
     documents = create_documents(corpus)
     chunks = split_documents(documents)
@@ -215,10 +215,22 @@ if __name__ == "__main__":
     retriever = get_retriever(vector_store)
 
     from src.hybrid_retriever import build_hybrid_retriever
+    from src.reranker import build_reranker
 
     hybrid_retriever = build_hybrid_retriever(bm25_retriever, retriever)
-    docs = hybrid_retriever.invoke(question)
+    reranked_retriever = build_reranker(hybrid_retriever)
+    docs = reranked_retriever.invoke(question)
 
     for doc in docs:
         print(doc.metadata)
         print(doc.page_content[:200])
+
+
+if __name__ == "__main__":
+    from src.llm import get_llm
+    from src.querry_transfrom import transform_query
+
+    question = "elon musk"
+    llm = get_llm()
+    transformed_question = transfor m_query(question, llm)
+    print(transformed_question)
